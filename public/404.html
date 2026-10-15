@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>PulseCraft Studio</title>
+    <script>
+      // Single Page App redirect for GitHub Pages
+      const pathSegments = location.pathname.split('/');
+      const repoName = 'studio';
+      const repoIndex = pathSegments.indexOf(repoName);
+      if (repoIndex !== -1) {
+        location.replace('/' + repoName + '/');
+      } else {
+        location.replace('/');
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

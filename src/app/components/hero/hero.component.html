@@ -1,0 +1,135 @@
+<section class="hero section" id="home" data-testid="hero-section">
+  <div class="container hero-grid">
+    <!-- Left: Hero Copy -->
+    <div class="hero-copy reveal reveal-one">
+      <p class="eyebrow">
+        <span class="eyebrow-dot" aria-hidden="true"></span>
+        Independent app &amp; game developers
+      </p>
+
+      <h1>
+        Crafting apps.<br />
+        <span>Creating playful</span><br />
+        experiences.
+      </h1>
+
+      <p class="hero-lede">
+        {{ studio.heroDescription }}
+      </p>
+
+      <div class="hero-actions">
+        <a
+          class="button button-primary"
+          href="#apps"
+          (click)="scrollTo('apps', $event)"
+          data-testid="hero-explore-apps-button"
+        >
+          <span>Explore our apps</span>
+          <svg
+            width="17"
+            height="17"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
+
+        <a
+          class="button button-quiet"
+          href="#about"
+          (click)="scrollTo('about', $event)"
+          data-testid="hero-meet-studio-button"
+        >
+          <span>Meet our studio</span>
+          <svg
+            width="17"
+            height="17"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <div class="hero-footnote">
+        <span class="pulse-line" aria-hidden="true"></span>
+        <span>Four ideas in progress</span>
+        <span class="footnote-separator" aria-hidden="true">/</span>
+        <span>One studio</span>
+      </div>
+    </div>
+
+    <!-- Right: Animated Hero Artwork -->
+    <div
+      class="hero-art reveal reveal-two"
+      aria-label="Abstract preview of mobile app experiences from PulseCraft Studio"
+      data-testid="hero-artwork"
+    >
+      <div class="art-orbit orbit-one" aria-hidden="true"></div>
+      <div class="art-orbit orbit-two" aria-hidden="true"></div>
+
+      <!-- Top Floating Chip -->
+      <div class="floating-chip chip-top" aria-hidden="true">
+        PLAY <span class="chip-accent">+</span>
+      </div>
+
+      <!-- Background Phone Mockup Card -->
+      <div class="phone-card phone-back" aria-hidden="true">
+        <div class="mini-status"></div>
+        <div class="mini-bars">
+          <i></i>
+          <i></i>
+          <i></i>
+        </div>
+        <div class="mini-circle"></div>
+      </div>
+
+      <!-- Foreground Main Phone Mockup -->
+      <div class="phone-card phone-main" aria-hidden="true">
+        <div class="phone-notch"></div>
+        <div class="main-art">
+          <span class="sym-arrow">↗</span>
+          <span class="sym-spark">✦</span>
+          <span class="sym-circle">◒</span>
+        </div>
+        <div class="main-copy">
+          <b>Make room<br />for wonder.</b>
+          <small>pulsecraft / 01</small>
+        </div>
+        <div class="main-progress">
+          <i></i>
+        </div>
+      </div>
+
+      <!-- Bottom Floating Chip -->
+      <div class="floating-chip chip-bottom" aria-hidden="true">
+        <span class="sparkle">✦</span> IDEAS IN MOTION
+      </div>
+
+      <!-- Decorative Stars and Dots -->
+      <span class="art-star star-one" aria-hidden="true">✦</span>
+      <span class="art-star star-two" aria-hidden="true">✧</span>
+      <span class="art-dot dot-one" aria-hidden="true"></span>
+      <span class="art-dot dot-two" aria-hidden="true"></span>
+    </div>
+  </div>
+
+  <!-- Scroll-down indicator -->
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Scroll to explore</span>
+    <i></i>
+  </div>
+</section>

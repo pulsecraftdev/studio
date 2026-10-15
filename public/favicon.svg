@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <defs>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#519bff" />
+      <stop offset="100%" stop-color="#8f72ff" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#519bff" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <rect width="32" height="32" rx="8" fill="#080b16"/>
+  <g transform="translate(6, 4) skewX(-12)" filter="url(#glow)">
+    <rect x="0" y="8" width="4.5" height="13" rx="2.25" fill="url(#brandGrad)" />
+    <rect x="7" y="0" width="4.5" height="24" rx="2.25" fill="url(#brandGrad)" />
+    <rect x="14" y="5" width="4.5" height="18" rx="2.25" fill="url(#brandGrad)" />
+  </g>
+</svg>

@@ -1,0 +1,43 @@
+<section class="about-section section" id="about" data-testid="about-section">
+  <div class="container about-grid">
+    <!-- Left: About Copy -->
+    <div class="about-copy reveal">
+      <p class="eyebrow">
+        <span class="eyebrow-dot" aria-hidden="true"></span>
+        02 / The studio
+      </p>
+
+      <h2>
+        Creativity meets<br />
+        <span>technology.</span>
+      </h2>
+
+      <p class="lead-text">
+        We believe great mobile experiences combine thoughtful design, useful functionality, and a little imagination. Our focus is on developing mobile games and applications that people can enjoy as part of their everyday lives.
+      </p>
+
+      <p>
+        From playful puzzle games to practical everyday lifestyle tools, we enjoy turning ideas into experiences people can explore, enjoy, and return to.
+      </p>
+
+      <p>
+        We believe great digital experiences come from meticulous attention to detail, continuous refinement, and a genuine passion for building.
+      </p>
+    </div>
+
+    <!-- Right: Three Studio Principles -->
+    <div class="principles reveal reveal-two">
+      <div class="principle-line" aria-hidden="true"></div>
+
+      @for (principle of principles; track principle.number) {
+        <div class="principle">
+          <span class="principle-number">{{ principle.number }}</span>
+          <div class="principle-body">
+            <h3>{{ principle.title }}</h3>
+            <p>{{ principle.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

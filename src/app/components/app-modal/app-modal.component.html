@@ -1,0 +1,160 @@
+@if (app) {
+  <div
+    class="modal-backdrop"
+    (mousedown)="onBackdropClick($event)"
+    data-testid="app-details-modal"
+    role="presentation"
+  >
+    <div
+      class="app-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      [style.--app-accent]="'var(--' + app.accent + ')'"
+    >
+      <!-- Close Button -->
+      <button
+        type="button"
+        class="modal-close"
+        (click)="close()"
+        aria-label="Close app details"
+        data-testid="close-app-modal"
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- App Artwork Column -->
+      <div class="modal-visual-wrap">
+        <app-visual [app]="app" [small]="true"></app-visual>
+      </div>
+
+      <!-- App Information Column -->
+      <div class="modal-copy">
+        <p class="app-category">{{ app.category }}</p>
+        <h2 id="modal-title">{{ app.name }}</h2>
+
+        @if (app.tagline) {
+          <p class="modal-tagline">{{ app.tagline }}</p>
+        }
+
+        <p class="modal-description">{{ app.description }}</p>
+
+        <!-- Package Name Details Row -->
+        <div class="package-row">
+          <div class="package-header">
+            <span>Package Name</span>
+            <button
+              type="button"
+              class="copy-pkg-btn"
+              (click)="copyPackage()"
+              [attr.aria-label]="'Copy package name ' + app.packageName"
+            >
+              @if (copiedPackage()) {
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#54dbcf"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span class="copied-text">Copied</span>
+              } @else {
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copy</span>
+              }
+            </button>
+          </div>
+          <code>{{ app.packageName }}</code>
+        </div>
+
+        <!-- Publication Status -->
+        <div class="modal-status">
+          <span class="status-indicator">
+            <i></i>
+            {{ app.statusLabel || 'Coming Soon' }}
+          </span>
+          <span class="platform-indicator">Platform: Android</span>
+        </div>
+
+        <!-- Highlights / Features if present -->
+        @if (app.highlights && app.highlights.length) {
+          <div class="modal-highlights">
+            <h4>Highlights</h4>
+            <ul>
+              @for (item of app.highlights; track item) {
+                <li>
+                  <span class="bullet" aria-hidden="true">✦</span>
+                  <span>{{ item }}</span>
+                </li>
+              }
+            </ul>
+          </div>
+        }
+
+        <!-- Store Link or Transparent Notice -->
+        @if (app.playStoreUrl) {
+          <a
+            class="button button-primary modal-play-btn"
+            [href]="app.playStoreUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Open on Google Play</span>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        } @else {
+          <p class="modal-note">
+            <span class="info-icon" aria-hidden="true">ℹ</span>
+            A Google Play link will appear here as soon as this app is publicly released.
+          </p>
+        }
+      </div>
+    </div>
+  </div>
+}

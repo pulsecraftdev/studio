@@ -1,0 +1,382 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.app-visual {
+  height: 196px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 70% 36%, color-mix(in srgb, var(--app-accent, #519bff) 40%, transparent), transparent 45%),
+    linear-gradient(145deg, #17284c, #13182e 70%);
+  transition: transform 0.35s ease, filter 0.35s ease;
+  user-select: none;
+}
+
+.visual-glow {
+  width: 140px;
+  height: 140px;
+  position: absolute;
+  right: -35px;
+  top: -45px;
+  border-radius: 50%;
+  background: var(--app-accent, #519bff);
+  filter: blur(38px);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* ========================================================
+   ARROW ESCAPE (arrows)
+   ======================================================== */
+.visual-arrows {
+  background-color: #111c38;
+  background-image:
+    linear-gradient(rgba(101, 148, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(101, 148, 255, 0.12) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+.grid-dots {
+  position: absolute;
+  inset: 15px;
+  background-image: radial-gradient(rgba(110, 153, 255, 0.35) 1px, transparent 1px);
+  background-size: 26px 26px;
+  opacity: 0.35;
+}
+
+.arrow-composition {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.arrow-line {
+  position: absolute;
+  font-size: 64px;
+  color: #67a8ff;
+  text-shadow: 0 0 24px rgba(81, 155, 255, 0.7);
+  font-family: var(--font-display, sans-serif);
+  font-weight: 700;
+  z-index: 2;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.line-one {
+  left: 32px;
+  top: 48px;
+  transform: rotate(-20deg);
+}
+
+.line-two {
+  right: 42px;
+  bottom: 22px;
+  transform: rotate(45deg);
+  color: #a180ff;
+  text-shadow: 0 0 24px rgba(161, 128, 255, 0.7);
+}
+
+.arrow-dot {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #67a8ff;
+  box-shadow: 0 0 10px #67a8ff;
+
+  &.dot-a {
+    left: 88px;
+    top: 36px;
+  }
+  &.dot-b {
+    right: 80px;
+    bottom: 45px;
+    background: #a180ff;
+    box-shadow: 0 0 10px #a180ff;
+  }
+}
+
+.arrow-path-line {
+  position: absolute;
+  left: 38px;
+  top: 98px;
+  width: 130px;
+  height: 1px;
+  border-top: 1px dashed rgba(103, 168, 255, 0.4);
+  transform: rotate(22deg);
+}
+
+/* ========================================================
+   GIGGLY JELLY TOWER (jelly)
+   ======================================================== */
+.visual-jelly {
+  background: linear-gradient(140deg, #472a6a, #202652);
+}
+
+.jelly-composition {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.jelly-shape {
+  position: absolute;
+  border-radius: 44% 52% 45% 48%;
+  background: linear-gradient(145deg, #f49ac8, #9958c8);
+  box-shadow:
+    inset -9px -9px 18px rgba(78, 34, 125, 0.35),
+    inset 6px 5px 12px rgba(255, 255, 255, 0.3),
+    0 14px 24px rgba(0, 0, 0, 0.28);
+  transition: transform 0.4s ease;
+  animation: jelly-bob 4s ease-in-out infinite;
+}
+
+.jelly-one {
+  width: 80px;
+  height: 68px;
+  left: 38px;
+  bottom: 24px;
+  transform: rotate(-10deg);
+  animation-delay: 0s;
+}
+
+.jelly-two {
+  width: 76px;
+  height: 64px;
+  left: 95px;
+  bottom: 74px;
+  transform: rotate(12deg);
+  background: linear-gradient(145deg, #ffcd76, #ef719a);
+  animation-delay: 0.6s;
+}
+
+.jelly-three {
+  width: 72px;
+  height: 60px;
+  left: 142px;
+  bottom: 26px;
+  transform: rotate(5deg);
+  background: linear-gradient(145deg, #70dfcf, #58a7e7);
+  animation-delay: 1.2s;
+}
+
+.jelly-bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  &.bubble-one {
+    width: 12px;
+    height: 12px;
+    right: 38px;
+    top: 36px;
+  }
+  &.bubble-two {
+    width: 8px;
+    height: 8px;
+    left: 28px;
+    top: 48px;
+  }
+}
+
+@keyframes jelly-bob {
+  0%, 100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(4deg);
+  }
+}
+
+/* ========================================================
+   SIPORA (sipora)
+   ======================================================== */
+.visual-sipora {
+  background: linear-gradient(150deg, #133d61, #17293f);
+}
+
+.water-composition {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.water-drop {
+  position: absolute;
+  left: 50%;
+  top: 34px;
+  transform: translateX(-50%);
+  font-size: 64px;
+  line-height: 1;
+  filter: drop-shadow(0 0 20px #31a6d8);
+  animation: drop-pulse 3s ease-in-out infinite;
+}
+
+.water-ring {
+  position: absolute;
+  border: 1px solid rgba(92, 223, 224, 0.45);
+  border-radius: 50%;
+  left: 50%;
+  transform: translateX(-50%) rotate(-15deg);
+
+  &.ring-one {
+    width: 160px;
+    height: 44px;
+    top: 92px;
+  }
+  &.ring-two {
+    width: 125px;
+    height: 36px;
+    top: 108px;
+    opacity: 0.5;
+  }
+  &.ring-three {
+    width: 80px;
+    height: 24px;
+    top: 122px;
+    opacity: 0.3;
+  }
+}
+
+@keyframes drop-pulse {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-6px) scale(1.05);
+  }
+}
+
+/* ========================================================
+   WORD HEAVEN (letters)
+   ======================================================== */
+.visual-letters {
+  background: linear-gradient(140deg, #33236b, #1c244e);
+}
+
+.letters-composition {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.letter-tile {
+  position: absolute;
+  width: 54px;
+  height: 59px;
+  border: 1px solid rgba(193, 169, 255, 0.35);
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, #8065d8, #413d8f);
+  font-family: var(--font-display, sans-serif);
+  font-weight: 700;
+  font-size: 28px;
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.tile-w {
+  left: 28px;
+  top: 66px;
+  transform: rotate(-13deg);
+}
+
+.tile-o {
+  left: 92px;
+  top: 36px;
+  transform: rotate(7deg);
+  background: linear-gradient(145deg, #6d9df7, #5a54af);
+}
+
+.tile-r {
+  left: 148px;
+  top: 78px;
+  transform: rotate(17deg);
+  background: linear-gradient(145deg, #d878b1, #6e4b9d);
+}
+
+.tile-d {
+  left: 94px;
+  top: 110px;
+  transform: rotate(-5deg);
+  background: linear-gradient(145deg, #a277ed, #5547a7);
+}
+
+.letter-particle {
+  position: absolute;
+  color: #a277ed;
+  font-size: 14px;
+  opacity: 0.6;
+
+  &.p-one {
+    top: 24px;
+    right: 32px;
+  }
+  &.p-two {
+    bottom: 24px;
+    left: 24px;
+    color: #6d9df7;
+  }
+}
+
+/* ========================================================
+   MODAL / LARGE MODE
+   ======================================================== */
+.visual-small {
+  height: 100%;
+  min-height: 280px;
+
+  .arrow-line {
+    font-size: 88px;
+  }
+  .line-one {
+    left: 45px;
+    top: 70px;
+  }
+  .line-two {
+    right: 50px;
+    bottom: 35px;
+  }
+  .water-drop {
+    font-size: 84px;
+    top: 60px;
+  }
+  .water-ring.ring-one {
+    width: 210px;
+    height: 58px;
+    top: 145px;
+  }
+  .water-ring.ring-two {
+    width: 160px;
+    height: 44px;
+    top: 165px;
+  }
+  .letter-tile {
+    width: 64px;
+    height: 70px;
+    font-size: 34px;
+  }
+  .tile-w { left: 40px; top: 90px; }
+  .tile-o { left: 115px; top: 50px; }
+  .tile-r { left: 185px; top: 100px; }
+  .tile-d { left: 118px; top: 140px; }
+  .jelly-one { width: 96px; height: 82px; left: 45px; bottom: 35px; }
+  .jelly-two { width: 90px; height: 76px; left: 115px; bottom: 95px; }
+  .jelly-three { width: 85px; height: 72px; left: 175px; bottom: 38px; }
+}
+
+@media (max-width: 620px) {
+  .visual-small {
+    min-height: 200px;
+    height: 200px;
+
+    .arrow-line { font-size: 60px; }
+    .water-drop { font-size: 54px; top: 35px; }
+    .letter-tile { width: 48px; height: 52px; font-size: 24px; }
+  }
+}
